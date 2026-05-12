@@ -8,6 +8,7 @@ import com.data_management.Patient;
  * and generating alerts when certain predefined conditions are met. This class
  * relies on a {@link DataStorage} instance to access patient data and evaluate
  * it against specific health criteria.
+ * Alerts may represent critical or abnormal patient states
  */
 public class AlertGenerator {
     private DataStorage dataStorage;
@@ -17,8 +18,7 @@ public class AlertGenerator {
      * The {@code DataStorage} is used to retrieve patient data that this class
      * will monitor and evaluate.
      *
-     * @param dataStorage the data storage system that provides access to patient
-     *                    data
+     * @param dataStorage the data storage system that provides access to patient data
      */
     public AlertGenerator(DataStorage dataStorage) {
         this.dataStorage = dataStorage;
@@ -29,10 +29,11 @@ public class AlertGenerator {
      * are met. If a condition is met, an alert is triggered via the
      * {@link #triggerAlert}
      * method. This method should define the specific conditions under which an
-     * alert
-     * will be triggered.
+     * alert will be triggered.
      *
      * @param patient the patient data to evaluate for alert conditions
+     * 
+     * @return the alert object that was triggered
      */
     public void evaluateData(Patient patient) {
         // Implementation goes here
@@ -45,6 +46,7 @@ public class AlertGenerator {
      * an argument.
      *
      * @param alert the alert object containing details about the alert condition
+     * @return ?
      */
     private void triggerAlert(Alert alert) {
         // Implementation might involve logging the alert or notifying staff

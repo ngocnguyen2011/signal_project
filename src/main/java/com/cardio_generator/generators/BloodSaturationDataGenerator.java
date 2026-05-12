@@ -4,10 +4,36 @@ import java.util.Random;
 
 import com.cardio_generator.outputs.OutputStrategy;
 
+/**
+ * Generates simulated realistic simulation blood oxygen saturation data for patients.
+ *
+ * This class produces realistic blood saturation values that
+ * fluctuate gradually over time to simulate real-world patient
+ * monitoring conditions.
+ *
+ * Each patient maintains an independent saturation state,
+ * allowing continuous and patient-specific simulation behavior.
+ *
+ * Generated saturation values are constrained to realistic
+ * 
+ * @return values 
+ */
 public class BloodSaturationDataGenerator implements PatientDataGenerator {
     private static final Random random = new Random();
     private int[] lastSaturationValues;
 
+    /**
+     * Creates a blood saturation data generator for a specified number
+     * of patients.
+     *
+     * Each patient is initialized with a baseline blood saturation
+     * value between 95% and 100%.
+     *
+     * @param patientCount the number of patients for whom saturation
+     *                     data will be simulated; must be greater than 0
+     * 
+     * @return an instance of BloodSaturationDataGenerator initialized for the specified patient count
+     */
     public BloodSaturationDataGenerator(int patientCount) {
         lastSaturationValues = new int[patientCount + 1];
 
@@ -17,6 +43,22 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
         }
     }
 
+    /**
+     * Generates and outputs a simulated blood saturation reading
+     * for a patient.
+     *
+     * The generated value fluctuates slightly from the patient's
+     * previous saturation value to simulate natural physiological
+     * variation over time.
+     *
+     * The saturation value is constrained to remain within
+     * realistic healthy bounds between 90% and 100%.
+     *
+     * @param patientId the unique identifier of the patient
+     * @param outputStrategy the output mechanism responsible for
+     *                       handling the generated saturation data
+     * 
+     */
     @Override
     public void generate(int patientId, OutputStrategy outputStrategy) {
         try {
