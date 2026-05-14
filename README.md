@@ -67,5 +67,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Project members
 -Student ID: 6425484
 
+
 ## Project Documentation
 -UML Model: [View UML Models](./uml_models/)
+
+-Student ID: 6429238
+
