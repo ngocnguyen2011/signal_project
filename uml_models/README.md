@@ -71,3 +71,23 @@ Note: IdentityManager is used to handle problems such as duplicate IDs or missin
 - The IdentityManager class helps manage and verify patient identities to avoid mistakes or duplicate records. 
 - The PatientDatabase class is used to save, update, and retrieve patient data efficiently. 
 - The IdentityLog class keeps track of identity-related actions and changes for security and monitoring purposes.
+
+## Subsystem 4: Data Access Layer
+
+1. Classes and Functions
+
+- DataListener: receives data from different sources.
+- TCPDataListener: receives data through TCP connections.
+- WebSocketDataListener: handles real-time data via WebSockets.
+- FileDataListener: reads data from files.
+- DataParser: converts raw data into usable format.
+- DataSourceAdapter: connects and adapts different data sources.
+
+This subsystem handles receiving data from external sources.
+
+2. Reasons
+
+- DataListener interface because all listener types receive data in similar ways even though the communication method is different.
+- The TCPDataListener, WebSocketDataListener, and FileDataListener each process a different source type.
+- The DataParser converts incoming raw data into a standard format that the rest of the system can understand.
+- The DataSourceAdapter passes parsed data into the storage subsystem.
