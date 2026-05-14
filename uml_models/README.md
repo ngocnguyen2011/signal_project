@@ -50,3 +50,24 @@
 
 -Separating the StoragePolicy logic from the main storage class allows the system to run cleanup tasks in the background. This ensures that the saveData() function remains fast and responsive for real-time streaming, as it doesn't have to worry about managing database size or old file deletion during every save operation.
 
+## Subsystem 3: Patient Identification System
+
+1. Classes and Functions
+   
+- PatientIdentifier: Stores a patient’s unique ID
+- HospitalPatient: Represents a patient in the hospital system
+- IdentityManager: Manages and verifies patient identities
+- PatientDatabase: Stores patient records and data
+- IdentityLog: Tracks identity-related actions and changes
+
+This subsystem matches incoming simulator data to the correct patient. The PatientIdentifier checks whether the incoming patient ID exists in the hospital database. If a valid match is found, the data is connected to the patient. The HospitalPatient class stores information such as patient ID, name, and medical history.
+
+Note: IdentityManager is used to handle problems such as duplicate IDs or missing patients. The IdentityLog stores information about mismatches and failed identification attempts.
+
+2. Reasons
+
+- The PatientIdentifier class is used to give each patient a unique ID so they can be identified correctly. 
+- The HospitalPatient class is used to store and organize all patient information in the hospital system. 
+- The IdentityManager class helps manage and verify patient identities to avoid mistakes or duplicate records. 
+- The PatientDatabase class is used to save, update, and retrieve patient data efficiently. 
+- The IdentityLog class keeps track of identity-related actions and changes for security and monitoring purposes.
