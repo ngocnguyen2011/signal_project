@@ -61,5 +61,12 @@ public class Patient {
         }
         return filteredRecords;
     }
+
+    /**
+     * @return patientId
+     */
+    public int getPatientId() {
+        return this.patientId;
+    }
 }
 

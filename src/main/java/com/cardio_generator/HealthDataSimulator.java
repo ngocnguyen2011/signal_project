@@ -73,7 +73,7 @@ public class HealthDataSimulator {
     *   <li>{@code --patient-count <count>} to specify the number of patients</li>
     *   <li>{@code --output <type>} to configure the output mechanism</li>
     * </ul>
-    *
+ *
     * <p>Supported output types include console, file, TCP socket,
     * and WebSocket output strategies.
     *
