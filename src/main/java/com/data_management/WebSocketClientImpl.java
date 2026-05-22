@@ -1,10 +1,10 @@
 package com.data_management;
 
+import java.io.IOException;
+import java.net.URI;
+
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
-
-import java.net.URI;
-import java.io.IOException;
 
 public class WebSocketClientImpl extends WebSocketClient implements DataReader {
 
