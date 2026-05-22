@@ -54,7 +54,7 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
      * The saturation value is constrained to remain within
      * realistic healthy bounds between 90% and 100%.
      *
-     * @param patientId the unique identifier of the patient
+     * @param patientId the identifier of the patient
      * @param outputStrategy the output mechanism responsible for
      *                       handling the generated saturation data
      * 

@@ -59,7 +59,7 @@ public class TcpOutputStrategy implements OutputStrategy {
      *
      * If no client is connected, the data is not transmitted.
      *
-     * @param patientId the unique identifier of the patient
+     * @param patientId the identifier of the patient
      * @param timestamp the generation timestamp of the data
      * @param label the category or type of generated data
      * @param data the generated health data payload

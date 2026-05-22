@@ -1,0 +1,1 @@
+The test for RapidDropAlert haven't been tested because of logic issue

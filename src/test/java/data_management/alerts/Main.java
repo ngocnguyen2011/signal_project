@@ -1,3 +1,5 @@
+package data_management.alerts;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -198,55 +200,45 @@ class PriorityAlertDecorator extends AlertDecorator {
 
 // SINGLETON PATTERN
 
-class DataStorage {
-    private static DataStorage instance;
+class LocalMockDataStorage {
+    private static LocalMockDataStorage instance;
     private List<String> patientData;
 
-    private DataStorage() {
+    private LocalMockDataStorage() {
         patientData = new ArrayList<>();
     }
 
-    public static synchronized DataStorage getInstance() {
+    public static synchronized LocalMockDataStorage getInstance() {
         if (instance == null) {
-            instance = new DataStorage();
+            instance = new LocalMockDataStorage();
         }
         return instance;
     }
 
-    public void addData(String data) {
-        patientData.add(data);
-    }
-
-    public List<String> getPatientData() {
-        return patientData;
-    }
+    public void addData(String data) { patientData.add(data); }
+    public List<String> getPatientData() { return patientData; }
 }
 
-class HealthDataSimulator {
-    private static HealthDataSimulator instance;
+// HEALTH DATA SIMULATOR LOCAL
+class LocalHealthDataSimulator {
+    private static LocalHealthDataSimulator instance;
     private Random random;
 
-    private HealthDataSimulator() {
-        random = new Random();
-    }
+    private LocalHealthDataSimulator() { random = new Random(); }
 
-    public static synchronized HealthDataSimulator getInstance() {
+    public static synchronized LocalHealthDataSimulator getInstance() {
         if (instance == null) {
-            instance = new HealthDataSimulator();
+            instance = new LocalHealthDataSimulator();
         }
         return instance;
     }
 
-    public double generateHeartRate() {
-        return 40 + random.nextInt(100);
-    }
+    public double generateHeartRate() { return 40 + random.nextInt(100); }
 }
 
 // MAIN CLASS
-
 public class Main {
     public static void main(String[] args) {
-
         // Strategy Pattern
         HealthMonitor monitor = new HealthMonitor();
         monitor.setStrategy(new HeartRateStrategy());
@@ -254,7 +246,6 @@ public class Main {
         double heartRate = 130;
 
         if (monitor.evaluate(heartRate)) {
-
             // Factory Method Pattern
             AlertFactory factory = new ECGAlertFactory();
 
@@ -272,15 +263,12 @@ public class Main {
             System.out.println("Priority: " + alert.getPriority());
         }
 
-        // Singleton Pattern
-        DataStorage storage = DataStorage.getInstance();
+        LocalMockDataStorage storage = LocalMockDataStorage.getInstance();
         storage.addData("Patient PATIENT-001 monitored successfully.");
-
         System.out.println(storage.getPatientData());
 
-        // Health Data Simulator
-        HealthDataSimulator simulator = HealthDataSimulator.getInstance();
-        System.out.println("Generated Heart Rate: " +
-                simulator.generateHeartRate());
+        // Health Data Simulator Local
+        LocalHealthDataSimulator simulator = LocalHealthDataSimulator.getInstance();
+        System.out.println("Generated Heart Rate: " + simulator.generateHeartRate());
     }
 }

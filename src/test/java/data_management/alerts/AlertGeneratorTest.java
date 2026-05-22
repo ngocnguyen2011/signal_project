@@ -1,6 +1,6 @@
 package data_management.alerts;
 
-import java.util.List; 
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.alerts.Alert; 
+import com.alerts.Alert;
 import com.alerts.AlertGenerator;
 import com.data_management.DataStorage;
 import com.data_management.Patient;
@@ -19,11 +19,11 @@ public class AlertGeneratorTest {
 
     @BeforeEach
     void setUp() {
-        // set up clean storage and alert generator before each test
-        storage = new DataStorage();
-        generator = new AlertGenerator(storage);
-    }
-
+    // set up clean storage and alert generator before each test
+    this.storage = DataStorage.getInstance();
+    this.storage.clear(); 
+    this.generator = new AlertGenerator(this.storage);
+}
     @Test // Test 1: for blood pressure >180
     void testCriticalSystolicHigh() {
     long time = System.currentTimeMillis();

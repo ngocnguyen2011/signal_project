@@ -2,6 +2,7 @@ package com.data_management;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents a patient and manages their medical records.
@@ -52,14 +53,16 @@ public class Patient {
      *         range
      */
     public List<PatientRecord> getRecords(long startTime, long endTime) {
-        // TODO Implement and test this method
+        // TODO Implement and test this method - DONE   
         List<PatientRecord> filteredRecords = new ArrayList<>();
         for (PatientRecord record : patientRecords) {
             if (record.getTimestamp() >= startTime && record.getTimestamp() <= endTime) {
                 filteredRecords.add(record);
             }
         }
-        return filteredRecords;
+        return patientRecords.stream()
+            .filter(record -> record.getTimestamp() >= startTime && record.getTimestamp() <= endTime)
+            .collect(Collectors.toList());
     }
 
     /**
@@ -69,4 +72,6 @@ public class Patient {
         return this.patientId;
     }
 }
+
+
 

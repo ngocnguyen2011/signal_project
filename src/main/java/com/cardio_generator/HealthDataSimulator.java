@@ -26,14 +26,13 @@ import com.cardio_generator.outputs.WebSocketOutputStrategy;
  /**
  * Simulating real-time health monitoring data for multiple patients.
  *
- * <p>This class acts as the main entry point of the application and coordinates
+ * This class acts as the main entry point of the application and coordinates
  * the generation and output of simulated medical data, including ECG signals,
  * blood saturation, blood pressure, blood levels, and alert notifications.
  *
- * <p>The simulator supports multiple output strategies such as console output,
+ * The simulator supports multiple output strategies such as console output,
  * file output, TCP sockets, and WebSocket communication.
  *
- * @author Ngoc Nguyen
  */
 public class HealthDataSimulator {
 
@@ -45,7 +44,7 @@ public class HealthDataSimulator {
     /**
     * Starts the health data simulation application.
     *
-    * <p>This method parses command-line arguments, initializes the scheduler,
+    * This method parses command-line arguments, initializes the scheduler,
     * creates randomized patient identifiers, and schedules periodic health
     * data generation tasks for each patient.
     *
@@ -66,16 +65,6 @@ public class HealthDataSimulator {
     }
     /**
     * Parses and processes command-line arguments for configuring the simulator.
-    *
-    * <p>Supported options include:
-    * <ul>
-    *   <li>{@code -h} to display help information</li>
-    *   <li>{@code --patient-count <count>} to specify the number of patients</li>
-    *   <li>{@code --output <type>} to configure the output mechanism</li>
-    * </ul>
- *
-    * <p>Supported output types include console, file, TCP socket,
-    * and WebSocket output strategies.
     *
     * @param args the command-line arguments provided to the application
     * @throws IOException if a specified output directory cannot be created
@@ -144,7 +133,7 @@ public class HealthDataSimulator {
     /**
     * Displays usage instructions and supported command-line options.
     *
-    * <p>This method prints configuration details and examples for running
+    * This method prints configuration details and examples for running
     * the simulator with different output strategies and patient counts.
     */
     private static void printHelp() {
@@ -167,7 +156,7 @@ public class HealthDataSimulator {
     /**
     * Creates and initializes a list of patient identifiers.
     *
-    * <p>Patient identifiers are generated sequentially starting from 1
+    * Patient identifiers are generated sequentially starting from 1
     * up to the specified patient count.
     *
     * @param patientCount the total number of patients to simulate;
@@ -185,11 +174,11 @@ public class HealthDataSimulator {
     /**
     * Schedules recurring health data generation tasks for all patients.
     *
-    * <p>This method initializes all health data generators and schedules
+    * This method initializes all health data generators and schedules
     * periodic simulation tasks for each patient using the configured
     * scheduler service.
     *
-    * <p>Different health metrics are generated at different intervals
+    * Different health metrics are generated at different intervals
     * to simulate realistic medical monitoring frequencies.
     *
     * @param patientIds a list of patient identifiers for which data
@@ -214,7 +203,7 @@ public class HealthDataSimulator {
     /**
     * Schedules a recurring task at a fixed execution rate.
     *
-    * <p>A random initial delay is applied to distribute task execution
+    * A random initial delay is applied to distribute task execution
     * more evenly across threads and reduce simultaneous task spikes.
     *
     * @param task the task to execute periodically
